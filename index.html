@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByBike - Sua E-Bike Legalizada</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Estilo customizado para a fonte Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efeito de gradiente sutil no Hero */
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #f9fafb 100%);
+        }
+        /* Estilo para o accordion do FAQ */
+        .faq-question.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+    
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Cabeçalho -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-900">
+                <span class="text-blue-600">By</span><span class="text-gray-700">Bike</span>
+            </h1>
+            <a href="#comprar" class="hidden sm:inline-block bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Garantir Minha Placa
+            </a>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <main>
+        <section class="relative text-center py-16 md:py-24 px-6 bg-white">
+            <div class="container mx-auto">
+                <span class="text-blue-600 font-semibold">LEGALIDADE E LIBERDADE PARA SUA BICICLETA ELÉTRICA</span>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 mt-4 mb-6 leading-tight">
+                    Sua E-Bike 100% Legal, <br class="hidden md:inline"> Sem Burocracia.
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg text-gray-600 mb-8">
+                    Em conformidade com a Resolução CONTRAN 996/2023 para veículos autopropelidos. Diga adeus ao RENAVAM, IPVA e burocracias.
+                </p>
+                
+                <!-- BOTÃO CTA CORRIGIDO -->
+                <a href="#comprar" class="inline-block w-full max-w-xs sm:w-auto bg-green-500 text-white font-bold py-4 px-6 sm:px-10 rounded-lg text-base sm:text-lg hover:bg-green-600 transition-colors duration-300 shadow-lg">
+                    COMPRAR E CIRCULAR LIVREMENTE
+                </a>
+
+                <div class="mt-6 text-gray-500 text-sm">
+                    <div class="flex justify-center items-center space-x-6">
+                        <span class="flex items-center"><i data-feather="lock" class="w-4 h-4 mr-2"></i>Compra Segura</span>
+                        <span class="flex items-center"><i data-feather="check-circle" class="w-4 h-4 mr-2"></i>Conforme a Lei</span>
+                        <span class="flex items-center"><i data-feather="truck" class="w-4 h-4 mr-2"></i>Entrega Rápida</span>
+                    </div>
+                </div>
+                
+                <!-- Imagem da Placa -->
+                <div class="mt-12 max-w-lg mx-auto">
+                    <img src="images/placa-bicicleta-eletrica.png" alt="Placa para bicicleta elétrica modelo CONTRAN 996/2023 com design da Terceira Ponte e Convento da Penha" class="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                    <p class="text-xs text-gray-400 mt-2">Modelo com design exclusivo de Vila Velha/Vitória.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Dor e Solução -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Burocracia para pedalar? Nunca mais.</h3>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mt-4">
+                    Nossa placa é a solução definitiva para identificar sua e-bike como um veículo autopropelido, garantindo sua tranquilidade e economia.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-feather="dollar-sign" class="w-12 h-12 text-red-500 mx-auto"></i>
+                        <h4 class="text-xl font-bold mt-4">Esqueça os Custos</h4>
+                        <p class="text-gray-600 mt-2">Sem taxas anuais de licenciamento, IPVA ou seguro obrigatório.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-feather="file-text" class="w-12 h-12 text-red-500 mx-auto"></i>
+                        <h4 class="text-xl font-bold mt-4">Evite a Burocracia</h4>
+                        <p class="text-gray-600 mt-2">Não há necessidade de registro no RENAVAM ou processos complexos no Detran.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i data-feather="user-x" class="w-12 h-12 text-red-500 mx-auto"></i>
+                        <h4 class="text-xl font-bold mt-4">Dispense a CNH</h4>
+                        <p class="text-gray-600 mt-2">Não é exigida CNH categoria A ou ACC para conduzir sua e-bike autopropelida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Explicação da Lei -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <span class="text-blue-600 font-semibold">ENTENDA A LEI</span>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Por que sua e-bike está isenta de emplacamento?</h3>
+                    <p class="text-lg text-gray-600 mt-4">
+                        A Resolução CONTRAN 996/2023 é clara. Se sua bicicleta elétrica se enquadra nas características de um "autopropelido", ela não é considerada um ciclomotor e, portanto, não precisa de registro.
+                    </p>
+                    <div class="space-y-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i data-feather="zap" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Potência até 1.000W</h4>
+                                <p class="text-gray-600">O motor da sua e-bike deve ter potência nominal máxima de até 1000 Watts.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i data-feather="activity" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Velocidade até 32 km/h</h4>
+                                <p class="text-gray-600">A velocidade máxima de propulsão do motor não deve ultrapassar 32 km/h.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                                <i data-feather="mouse-pointer" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Pode ter Acelerador</h4>
+                                <p class="text-gray-600">Diferente das bicicletas com pedal assistido, o autopropelido pode ter acelerador manual.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="images/autopropelido-legalizado.png" alt="Não é um ciclomotor e está isenta de registro e emplacamento.">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção Depoimentos -->
+        <section class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold text-center text-gray-900">Ciclistas que escolheram a liberdade</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
+                    <!-- Depoimento 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <img src="images/youngmale.png" alt="Foto de João P." class="w-20 h-20 rounded-full mx-auto -mt-16 border-4 border-white">
+                        <p class="text-gray-600 mt-4 italic">"Finalmente posso ir para a faculdade sem me preocupar com fiscalização. A placa deu a tranquilidade que eu precisava. Recomendo demais!"</p>
+                        <p class="font-bold text-gray-900 mt-4">João P.</p>
+                        <p class="text-sm text-gray-500">Vila Velha, ES</p>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <img src="images/female.png" alt="Foto de Maria C." class="w-20 h-20 rounded-full mx-auto -mt-16 border-4 border-white">
+                        <p class="text-gray-600 mt-4 italic">"O custo-benefício é incrível. Economizei muito só de não precisar emplacar. A placa é igual à MercoSul e a entrega foi super rápida."</p>
+                        <p class="font-bold text-gray-900 mt-4">Maria C.</p>
+                        <p class="text-sm text-gray-500">Vitória, ES</p>
+                    </div>
+                     <!-- Depoimento 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <img src="images/male.png" alt="Foto de Ricardo S." class="w-20 h-20 rounded-full mx-auto -mt-16 border-4 border-white">
+                        <p class="text-gray-600 mt-4 italic">"Tinha muitas dúvidas sobre a legislação, mas o site explicou tudo. Comprei a placa para minha filha e agora tenho toda segurança jurídica."</p>
+                        <p class="font-bold text-gray-900 mt-4">Ricardo S.</p>
+                        <p class="text-sm text-gray-500">Serra, ES</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção FAQ -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h3 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Perguntas Frequentes</h3>
+                <div class="space-y-4" id="faq-container">
+                    <!-- Pergunta 1 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold text-gray-800">Preciso ter CNH para usar minha e-bike com esta placa?</span>
+                            <i data-feather="chevron-down" class="faq-arrow w-6 h-6 text-gray-500 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-600">Não. Para veículos autopropelidos dentro das especificações da lei (até 1000W e 32 km/h), não é exigida CNH categoria A nem a ACC (Autorização para Conduzir Ciclomotores).</p>
+                        </div>
+                    </div>
+                    <!-- Pergunta 2 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold text-gray-800">E se eu for parado em uma fiscalização?</span>
+                            <i data-feather="chevron-down" class="faq-arrow w-6 h-6 text-gray-500 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-600">A placa serve justamente para identificar seu veículo corretamente. Explique que se trata de um veículo autopropelido, conforme a Resolução 996/2023 do CONTRAN, e não um ciclomotor que exige emplacamento. A identificação visual clara evita equívocos.</p>
+                        </div>
+                    </div>
+                    <!-- Pergunta 3 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold text-gray-800">A placa é válida em todo o Brasil?</span>
+                            <i data-feather="chevron-down" class="faq-arrow w-6 h-6 text-gray-500 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-600">Sim, a Resolução do CONTRAN é uma norma federal, válida em todo o território nacional. Você pode circular com tranquilidade em qualquer cidade do país.</p>
+                        </div>
+                    </div>
+                    <!-- Pergunta 4 -->
+                    <div class="border border-gray-200 rounded-lg">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold text-gray-800">Qual o material e como instalo a placa?</span>
+                            <i data-feather="chevron-down" class="faq-arrow w-6 h-6 text-gray-500 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-600">Feita em alumínio não galvanizado, é um metal leve e resistente à oxidação e corrosão. Ideal para ambientes litorâneos, pois não enferruja e resiste à maresia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Final de CTA -->
+        <section id="comprar" class="py-16 md:py-24 bg-gray-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold">Pronto para pedalar com total liberdade e 100% dentro da lei?</h3>
+                <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">Evite custos e dores de cabeça. Garanta hoje mesmo a identificação correta para sua e-bike.</p>
+                
+                <!-- Formulário de Checkout -->
+                <form id="form-checkout" class="bg-white text-gray-900 rounded-lg p-8 max-w-md mx-auto mt-10 shadow-2xl">
+                    <p class="text-lg font-semibold">Placa Autopropelida CONTRAN 996/2023</p>
+                    <p class="text-5xl font-extrabold my-4">R$ 89,90</p>
+                    
+                    <div class="grid grid-cols-1 gap-4 text-left">
+                        <!-- Campos do Cartão -->
+                        <div>
+                            <label for="form-checkout__cardholderName" class="text-sm font-medium text-gray-600">Nome do Titular</label>
+                            <input type="text" id="form-checkout__cardholderName" class="w-full p-2 border border-gray-300 rounded mt-1" />
+                        </div>
+                        <div>
+                            <label for="form-checkout__cardholderEmail" class="text-sm font-medium text-gray-600">E-mail</label>
+                            <input type="email" id="form-checkout__cardholderEmail" class="w-full p-2 border border-gray-300 rounded mt-1" />
+                        </div>
+                        <div>
+                            <label for="form-checkout__cardNumber" class="text-sm font-medium text-gray-600">Número do Cartão</label>
+                            <div id="form-checkout__cardNumber" class="w-full p-2 border border-gray-300 rounded mt-1"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="form-checkout__expirationDate" class="text-sm font-medium text-gray-600">Vencimento</label>
+                                <div id="form-checkout__expirationDate" class="w-full p-2 border border-gray-300 rounded mt-1"></div>
+                            </div>
+                            <div>
+                                <label for="form-checkout__securityCode" class="text-sm font-medium text-gray-600">CVV</label>
+                                <div id="form-checkout__securityCode" class="w-full p-2 border border-gray-300 rounded mt-1"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="form-checkout__issuer" class="text-sm font-medium text-gray-600">Banco Emissor</label>
+                            <select id="form-checkout__issuer" class="w-full p-2 border border-gray-300 rounded mt-1"></select>
+                        </div>
+                        <div>
+                            <label for="form-checkout__installments" class="text-sm font-medium text-gray-600">Parcelas</label>
+                            <select id="form-checkout__installments" class="w-full p-2 border border-gray-300 rounded mt-1"></select>
+                        </div>
+                    </div>
+        
+                    <button type="submit" id="form-checkout__submit" class="block w-full mt-6 bg-green-500 text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-green-600 transition-colors duration-300 shadow-lg">
+                        PAGAR AGORA
+                    </button>
+                    <p id="payment-status" class="text-sm text-gray-500 mt-4"></p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 ByBike. Todos os direitos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Este produto visa a correta identificação de veículos autopropelidos e não substitui a necessidade de seguir as demais leis de trânsito.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para Feather Icons
+        feather.replace();
+
+        // Script para o Accordion do FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Fecha todas as respostas abertas
+                document.querySelectorAll('.faq-question.active').forEach(activeQuestion => {
+                    if (activeQuestion !== question) {
+                        activeQuestion.classList.remove('active');
+                        activeQuestion.nextElementSibling.style.maxHeight = 0;
+                    }
+                });
+
+                // Abre ou fecha a resposta clicada
+                if (isActive) {
+                    question.classList.remove('active');
+                    answer.style.maxHeight = 0;
+                } else {
+                    question.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+        
+        // --- INÍCIO DO SCRIPT DE PAGAMENTO MERCADO PAGO ---
+        
+        const mp = new MercadoPago('TEST-5a0beead-ed5f-42e0-a280-41d16d3bbd7678');
+        
+        // Monta os campos de cartão (card bricks)
+        const bricksBuilder = mp.bricks();
+        bricksBuilder.create("cardNumber", "form-checkout__cardNumber", {
+            initialization: {
+                amount: 89.90,
+            },
+        });
+        bricksBuilder.create("expirationDate", "form-checkout__expirationDate", {
+            initialization: {
+                amount: 89.90,
+            },
+        });
+        bricksBuilder.create("securityCode", "form-checkout__securityCode", {
+            initialization: {
+                amount: 89.90,
+            },
+        });
+        
+        const formCheckout = document.getElementById('form-checkout');
+        formCheckout.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const statusContainer = document.getElementById('payment-status');
+            statusContainer.innerText = 'Processando pagamento...';
+            document.getElementById('form-checkout__submit').disabled = true;
+        
+            const cardFormData = {
+                cardholderName: document.getElementById('form-checkout__cardholderName').value,
+                cardholderEmail: document.getElementById('form-checkout__cardholderEmail').value,
+            };
+        
+            try {
+                const cardToken = await mp.cardToken(cardFormData);
+                
+                // Envia o token para o seu backend
+                const response = await fetch('/process_payment', { // Este é o endpoint que criaremos no backend
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        token: cardToken.id,
+                        issuer_id: document.getElementById('form-checkout__issuer').value,
+                        installments: document.getElementById('form-checkout__installments').value,
+                        transaction_amount: 89.90,
+                        description: 'Placa Autopropelida CONTRAN 996/2023',
+                        payer: {
+                            email: cardFormData.cardholderEmail,
+                        },
+                    }),
+                });
+        
+                const result = await response.json();
+        
+                if (result.status === 'approved') {
+                    statusContainer.innerText = 'Pagamento aprovado! Obrigado.';
+                    statusContainer.style.color = 'green';
+                } else {
+                    statusContainer.innerText = `Erro no pagamento: ${result.message}`;
+                    statusContainer.style.color = 'red';
+                    document.getElementById('form-checkout__submit').disabled = false;
+                }
+        
+            } catch (error) {
+                console.error(error);
+                statusContainer.innerText = 'Ocorreu um erro. Verifique os dados do cartão.';
+                statusContainer.style.color = 'red';
+                document.getElementById('form-checkout__submit').disabled = false;
+            }
+        });
+        // --- FIM DO SCRIPT DE PAGAMENTO MERCADO PAGO ---
+    </script>
+
+</body>
+</html>
